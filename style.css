@@ -1,0 +1,269 @@
+  @font-face {
+        font-family: "Gravity";
+        src: url("assets/gravity.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "OPS";
+        src: url("assets/ops.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "OPS-Italic";
+        src: url("assets/ops-italic.ttf") format("truetype");
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        overflow: hidden;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .letter {
+        font-family: "Gravity";
+        font-size: 200px;
+        transform: scale(1, 3);
+        transform-origin: 65% 65%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-variation-settings: "wdth" 50;
+        color: #3da326;
+        transition: font-variation-settings 0.5s ease; /* Smooth transition for width change */
+        pointer-events: auto; /* Enable pointer events on each letter for hover effects */
+      }
+
+      .main-text {
+        display: flex;
+        height: 22vh;
+        cursor: pointer;
+        z-index: 70;
+        -webkit-user-select: none; /* Chrome, Safari, Opera */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer */
+        user-select: none; /* Standard syntax */
+      }
+
+      .noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently supported by all modern browsers */
+      }
+
+      #main-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        overflow: hidden;
+        height: 100vh;
+      }
+
+      #display {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      #about-wrapper{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin-left: 50px;
+        font-family: "OPS";
+        font-size: 18px;
+      }
+      #about-text {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex: 2;
+        margin-right: 150px;
+      }
+      #designers-name{
+        text-decoration: underline;
+      }
+      li {
+        margin-left: -10px;
+      }
+.hover-img {
+    position: absolute;
+    max-width: 50%; /* adjust as needed */
+    max-height: 50%; /* adjust as needed */
+}
+.end-space {
+    min-height: 500px;
+    width: 100%;
+}
+.hover-target {
+    display: inline-block;
+    cursor: pointer;
+    padding-left: 0px; /* Adjust padding as needed */
+    padding-right: 10px;
+
+    background-color: transparent; /* Ensure the background is transparent */
+}
+ #list-text {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    flex: 1;
+    margin-right: 50px;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+        #designer-block > div {
+            margin-bottom: 15px; /* adjust this value to increase or decrease the gap */
+        }
+        #list-text > div {
+            margin-bottom: 15px; /* add extra 20 to the designer block */
+        }
+      #italic-text{
+        font-family: "OPS-Italic";
+      }
+      #about-text > div {
+        margin-bottom: 20px; /* adjust this value to increase or decrease the gap */
+      }
+      #num-list{
+        color:rgba(61, 162, 38, 1);
+
+      }
+      #num-list * {
+        pointer-events: auto;
+      }
+      #num-list:hover{
+        cursor: pointer;
+      }
+
+      #menu-bar {
+        display: flex;
+        font-size: 18px;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+        height: 30px;
+        background-color: #ffffff;
+        z-index: 1000;
+        font-family: "OPS";
+        padding-left: 50px;
+        padding-right: 50px;
+}
+       
+      
+
+      #home-about{
+        display: flex;
+        justify-content: start;
+        gap: 30px;
+        align-items: center;
+        width: 100%;
+      }
+      #clear-button{
+        margin-right: 20px;
+      }
+      #home-button{
+        margin-left: 20px;
+      }
+
+      #clear-button:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      #home-button:hover {
+        text-decoration: underline;
+        cursor: pointer;
+
+      }
+
+     
+      .img-container {
+  position: absolute;
+  width: 150px; /* Adjust as needed */
+  height: auto;
+  overflow: visible; /* Ensure the link is visible when extending beyond the container */
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  z-index: 100;
+}
+
+.img-container img {
+  width: 100%;
+  height: auto;
+  display: block; /* Ensures no extra space within the container */
+}
+
+.img-container a {
+  position: absolute;
+  top: 100%; /* Position below the image */
+  left: 0; /* Align with the left edge of the image */
+  width: 100%; /* Match the width of the image */
+  color: black;
+  font-family: "OPS";
+  text-decoration: none;
+  visibility: hidden; /* Hide link by default */
+    white-space: nowrap; /* Prevents the text from wrapping */
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Smooth transition for visibility */
+  text-align: left; /* Center the text below the image */
+  padding: 5px 0; /* Add some padding to separate text from the image */
+}
+
+.img-container:hover {
+z-index: 200;}
+
+.img-container:hover a {
+  visibility: visible;
+  opacity: 1; /* Show link on hover */
+
+}
+
+.img-container:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(61, 162, 38, 1); /* Slightly see-through background */
+  mix-blend-mode: screen;
+  z-index: 200;
+}
+
+.person-name {
+  font-family: "OPS"; 
+  display: block;
+}
+
+.image-name {
+  font-family: "OPS-Italic";
+  display: block;
+}
+
+ /* Mobile styles */
+ @media only screen and (max-width: 600px) {
+    .letter {
+      font-size: 100px; /* Adjust as needed */
+    }
+  }
