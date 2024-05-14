@@ -251,6 +251,10 @@ z-index: 200;}
   z-index: 200;
 }
 
+.img-container img:hover::before {
+
+}
+
 .person-name {
   font-family: "OPS"; 
   display: block;
