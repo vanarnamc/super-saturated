@@ -177,42 +177,50 @@
 
 </body>
 <script>
-    window.onload = function () {
-        var numList = document.querySelectorAll('.hover-target');
-        var images = {};
-        var timeoutId;
-        var removeTimeoutId;
+window.onload = function () {
+    var numList = document.querySelectorAll('.hover-target');
+    var images = {};
+    var timeoutId;
+    var removeTimeoutId;
 
-        // Pre-load images
-        numList.forEach(function (num) {
-            var img = new Image();
-            img.src = num.dataset.img;
-            images[num.dataset.img] = img;
-        });
+    // Pre-load images
+    numList.forEach(function (num) {
+        var img = new Image();
+        img.src = num.dataset.img;
+        images[num.dataset.img] = img;
+    });
 
-        numList.forEach(function (num) {
-            num.addEventListener('mouseover', function (e) {
-                clearTimeout(timeoutId);
-                clearTimeout(removeTimeoutId);
-                timeoutId = setTimeout(() => {
-                    var img = images[this.dataset.img].cloneNode();
-                    img.classList.add('hover-img');
-                    img.style.left = (e.pageX - images[this.dataset.img].width / 2) + 'px';
-                    img.style.top = (e.pageY + 10) + 'px'; // position the image 10px below the cursor
-                    document.body.appendChild(img);
-                }, 2); // delay in milliseconds
-            });
-            num.addEventListener('mouseout', function () {
-                clearTimeout(timeoutId);
-                removeTimeoutId = setTimeout(() => {
-                    var img = document.querySelector('.hover-img');
-                    if (img) {
-                        img.parentNode.removeChild(img);
-                    }
-                }, 20); // delay in milliseconds
-            });
+    numList.forEach(function (num) {
+        num.addEventListener('mouseover', function (e) {
+            clearTimeout(timeoutId);
+            clearTimeout(removeTimeoutId);
+            timeoutId = setTimeout(() => {
+                var img = images[this.dataset.img].cloneNode();
+                img.classList.add('hover-img');
+                img.style.left = (e.pageX - images[this.dataset.img].width / 2) + 'px';
+
+                // If the mouse is in the top half of the screen, position the image below the cursor
+                // If the mouse is in the bottom half of the screen, position the image above the cursor
+                if (e.clientY < window.innerHeight / 2) {
+                    img.style.top = (e.pageY + 10) + 'px';
+                } else {
+                    img.style.bottom = (window.innerHeight - e.clientY + 10) + 'px';
+                }
+
+                document.body.appendChild(img);
+            }, 2); // delay in milliseconds
         });
-    };
+        num.addEventListener('mouseout', function () {
+            clearTimeout(timeoutId);
+            removeTimeoutId = setTimeout(() => {
+                var img = document.querySelector('.hover-img');
+                if (img) {
+                    img.parentNode.removeChild(img);
+                }
+            }, 20); // delay in milliseconds
+        });
+    });
+};
 
 </script>
 
