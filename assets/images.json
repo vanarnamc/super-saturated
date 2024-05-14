@@ -1,56 +1,56 @@
 [
   {
-    "filename": "1.png",
+    "filename": "clinton.png",
     "personName": "Clinton Van Arnam",
     "imageName": "Variations on Noise",
     "link": "https://example.com/sunset"
   },
   {
-    "filename": "2.png",
+    "filename": "rebecca.png",
     "personName": "Rebecca Wilkinson",
     "imageName": "Perform - Produce",
     "link": "https://example.com/forest"
   },
   {
-    "filename": "3.png",
+    "filename": "lydia.png",
     "personName": "Lydia Chodosh",
     "imageName": "Mountain",
     "link": "https://example.com/mountain"
   },
   {
-    "filename": "4.png",
+    "filename": "soomin.png",
     "personName": "Soo Min Lee",
     "imageName": "Graphic Warm Line",
     "link": "https://example.com/lake"
   },
   {
-    "filename": "5.png",
+    "filename": "kaela.png",
     "personName": "Kaela Kenedy",
     "imageName": "Endless Form",
     "link": "https://example.com/city"
   },
   {
-    "filename": "6.png",
-    "personName": "Kaela Kenedy",
-    "imageName": "Endless Form",
+    "filename": "glikeriya.png",
+    "personName": "Glikeriya Shotanova",
+    "imageName": "Here-there",
     "link": "https://example.com/city"
   },
   {
-    "filename": "7.png",
-    "personName": "Kaela Kenedy",
-    "imageName": "Endless Form",
+    "filename": "berett.png",
+    "personName": "Berret Wilber",
+    "imageName": "surface tension",
     "link": "https://example.com/city"
   },
   {
-    "filename": "8.png",
-    "personName": "Kaela Kenedy",
-    "imageName": "Endless Form",
+    "filename": "gabriel.png",
+    "personName": "Gabriel Drozdov",
+    "imageName": "This is for you",
     "link": "https://example.com/city"
   },
   {
-    "filename": "9.png",
-    "personName": "Kaela Kenedy",
-    "imageName": "Endless Form",
+    "filename": "shiyue.png",
+    "personName": "Shiyue Wang",
+    "imageName": "Life of Things, Things of Life",
     "link": "https://example.com/city"
   }
 ]
