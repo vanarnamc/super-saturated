@@ -1,56 +1,81 @@
 [
   {
-    "filename": "clinton.png",
-    "personName": "Clinton Van Arnam",
-    "imageName": "Variations on Noise",
-    "link": "https://example.com/sunset"
+    "filename": "michelle.png",
+    "personName": "Michelle Belgrod",
+    "imageName": "Graphic Desire",
+    "link": "https://michellebelgrod.com/"
   },
   {
     "filename": "rebecca.png",
     "personName": "Rebecca Wilkinson",
     "imageName": "Perform - Produce",
-    "link": "https://example.com/forest"
+    "link": "https://performproduce.com/"
   },
   {
     "filename": "lydia.png",
     "personName": "Lydia Chodosh",
-    "imageName": "Mountain",
-    "link": "https://example.com/mountain"
+    "imageName": "On the Impulse to Notate",
+    "link": "https://lydiachodosh.com/"
   },
   {
-    "filename": "soomin.png",
-    "personName": "Soo Min Lee",
-    "imageName": "Graphic Warm Line",
-    "link": "https://example.com/lake"
+    "filename": "emily.png",
+    "personName": "Emily Bluedorn",
+    "imageName": "Never Real Historians",
+    "link": "https://emilybluedorn.com/"
   },
   {
-    "filename": "kaela.png",
-    "personName": "Kaela Kenedy",
-    "imageName": "Endless Form",
-    "link": "https://example.com/city"
-  },
-  {
-    "filename": "glikeriya.png",
-    "personName": "Glikeriya Shotanova",
-    "imageName": "Here-there",
-    "link": "https://example.com/city"
-  },
-  {
-    "filename": "berett.png",
-    "personName": "Berret Wilber",
-    "imageName": "surface tension",
-    "link": "https://example.com/city"
-  },
-  {
-    "filename": "gabriel.png",
-    "personName": "Gabriel Drozdov",
-    "imageName": "This is for you",
-    "link": "https://example.com/city"
+    "filename": "clinton.png",
+    "personName": "Clinton Van Arnam",
+    "imageName": "Variations on Noise",
+    "link": "https://variationsonnoise.com/"
   },
   {
     "filename": "shiyue.png",
     "personName": "Shiyue Wang",
-    "imageName": "Life of Things, Things of Life",
-    "link": "https://example.com/city"
+    "imageName": "Here-there",
+    "link": "https://shiyue.cargo.site/"
+  },
+  {
+    "filename": "alec.png",
+    "personName": "Alec Figuracion",
+    "imageName": "Soft Procedures",
+    "link": "https://alecfiguracion.com/"
+  },
+  {
+    "filename": "soomin.png",
+    "personName": "Soo Min Lee",
+    "imageName": "Graphic Warmline",
+    "link": "https://soominlee.net"
+  },
+  {
+    "filename": "glikeriya.png",
+    "personName": "Glikeriya Shotanova",
+    "imageName": "Here—there",
+    "link": "https://glikerii.com/"
+  },
+  {
+    "filename": "berett.png",
+    "personName": "Berett Wilber",
+    "imageName": "surface tension",
+    "link": "https://berettwilber.com"
+  },
+  {
+    "filename": "gabriel.png",
+    "personName": "Gabriel Drozdov",
+    "imageName": "This is for you<",
+    "link": "https://thisisforyou.gabrieldrozdov.com"
+  },
+  {
+    "filename": "kaela.png",
+    "personName": "Kaela Kennedy",
+    "imageName": "Infinite Form",
+    "link": "https://kaelamkennedy.com"
+  },
+  {
+    "filename": "husna.png",
+    "personName": "Husna Abubakar",
+    "imageName": "ASILI",
+    "link": "https://www.instagram.com/byhusnaswaleh/"
   }
+  
 ]
