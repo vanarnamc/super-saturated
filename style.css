@@ -39,7 +39,7 @@
     align-items: center;
     font-variation-settings: "wdth" 50;
     color: #3da326;
-    transition: font-variation-settings 0.5s ease;
+    transition: font-variation-settings .5s ease;
     /* Smooth transition for width change */
     pointer-events: auto;
     /* Enable pointer events on each letter for hover effects */
@@ -341,6 +341,7 @@
     }
 
     #menu-bar {
+      font-size: 15px;
       padding-left: 10px;
       padding-right: 10px;
       position: fixed;
@@ -361,6 +362,8 @@
     }
 
     #about-wrapper {
+      font-size: 15px;
+
       flex-direction: column;
       justify-content: flex-start;
       /* Align content to the left */
