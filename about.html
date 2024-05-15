@@ -15,19 +15,25 @@
         <div id="menu-bar">
             <div id="home-about">
                 <div id="home-button"><a href="index.html">RISD GD MFA 2024</a></div>
-                <div> <a href="about.html">+ About the Show</a></div>
+                <div> <a href="about.html">[About the Show]</a></div>
             </div>
         </div>
         <div id="about-wrapper">
             <div id="about-text">
-                <div>“In the age of information overload, the ultimate luxury is meaning and context.” <br>— Louis
-                    Rossetto
+                <div class="mobile-top-space"></div>
+                <div>
+                    <span class="quote">“In the age of information overload, the ultimate luxury is meaning and
+                        context.”</span>
+                    <br>
+                    <span class="author">— Louis Rossetto</span>
                 </div>
                 <div>Graphic designers today operate in a supersaturated visual landscape. We produce image, text, and
                     form; we create and circulate content; we are asked to do so in excess. Design recirculates beyond
                     its intended context, taking on new meanings as it moves through culture. “Supersaturated” is both a
                     product of and a response to this reality. What is the responsibility of the contemporary designer
                     within this visually saturated world?</div>
+                <div class="mobile-bottom-space"></div>
+
             </div>
             <div id="list-text">
 
@@ -173,13 +179,14 @@
 
                 <div id="designer-block" style="color: #3da326; margin-top: 40px;">
                     <div>Graphic Design MFA 2024 <br>Rhode Island School of Design</div>
-                   
+
                     <div><span style="text-decoration: underline;">Pouya Ahmadi</span> <br>
                         Associate Professor, <br>Graphic Design
                     </div>
-                    <div><span style="text-decoration: underline;"> Bethany Johns </span><br>Professor,<br> Graphic Design<br>
+                    <div><span style="text-decoration: underline;"> Bethany Johns </span><br>Professor,<br> Graphic
+                        Design<br>
                         Graphic Design Graduate Program Director</div>
-                    
+
                 </div>
 
 
@@ -205,38 +212,83 @@
             images[num.dataset.img] = img;
         });
 
+        function showImage(e) {
+            clearTimeout(timeoutId);
+            clearTimeout(removeTimeoutId);
+            timeoutId = setTimeout(() => {
+                var img = images[this.dataset.img].cloneNode();
+                img.classList.add('hover-img');
+                img.style.left = (e.pageX - images[this.dataset.img].width / 2) + 'px';
+
+                // If the mouse is in the top half of the screen, position the image below the cursor
+                // If the mouse is in the bottom half of the screen, position the image above the cursor
+                if (e.clientY < window.innerHeight / 2) {
+                    img.style.top = (e.pageY + 10) + 'px';
+                } else {
+                    img.style.bottom = (window.innerHeight - e.clientY + 10) + 'px';
+                }
+
+                document.body.appendChild(img);
+            }, 2); // delay in milliseconds
+        }
+
+function showImageCentered(e) {
+    // If an image is already being displayed, return early
+    if (document.body.classList.contains('image-displayed')) {
+        return;
+    }
+
+    var img = images[this.dataset.img].cloneNode();
+    img.classList.add('hover-img');
+    img.style.position = 'fixed'; // Make the image fixed
+    img.style.left = '50%';
+    img.style.top = '50%';
+    img.style.transform = 'translate(-50%, -50%)';
+    img.style.width = '100%'; // Make the image take up 80% of the body's width
+
+    document.body.appendChild(img);
+    document.body.classList.add('image-displayed'); // Add a class to the body
+}
+
+// Modify the hideImage function to remove the class from the body
+function hideImage() {
+    clearTimeout(timeoutId);
+    removeTimeoutId = setTimeout(() => {
+        var img = document.querySelector('.hover-img');
+        if (img) {
+            img.parentNode.removeChild(img);
+            document.body.classList.remove('image-displayed'); // Remove the class from the body
+        }
+    }, 20); // delay in milliseconds
+}
+
+function hideImage() {
+    clearTimeout(timeoutId);
+    clearTimeout(removeTimeoutId);
+    removeTimeoutId = setTimeout(() => {
+        var img = document.querySelector('.hover-img');
+        if (img) {
+            img.parentNode.removeChild(img);
+            document.body.classList.remove('image-displayed'); // Remove the class from the body
+        }
+        // Clear the timeout set in the showImageCentered function
+        clearTimeout(timeoutId);
+    }, 20); // delay in milliseconds
+}
+
         numList.forEach(function (num) {
-            num.addEventListener('mouseover', function (e) {
-                clearTimeout(timeoutId);
-                clearTimeout(removeTimeoutId);
-                timeoutId = setTimeout(() => {
-                    var img = images[this.dataset.img].cloneNode();
-                    img.classList.add('hover-img');
-                    img.style.left = (e.pageX - images[this.dataset.img].width / 2) + 'px';
+    num.addEventListener('mouseover', showImage);
+    num.addEventListener('mouseout', hideImage);
+    num.addEventListener('click', showImageCentered); // Use the new function for the click event
+});
 
-                    // If the mouse is in the top half of the screen, position the image below the cursor
-                    // If the mouse is in the bottom half of the screen, position the image above the cursor
-                    if (e.clientY < window.innerHeight / 2) {
-                        img.style.top = (e.pageY + 10) + 'px';
-                    } else {
-                        img.style.bottom = (window.innerHeight - e.clientY + 10) + 'px';
-                    }
-
-                    document.body.appendChild(img);
-                }, 2); // delay in milliseconds
-            });
-            num.addEventListener('mouseout', function () {
-                clearTimeout(timeoutId);
-                removeTimeoutId = setTimeout(() => {
-                    var img = document.querySelector('.hover-img');
-                    if (img) {
-                        img.parentNode.removeChild(img);
-                    }
-                }, 20); // delay in milliseconds
-            });
+        // Add click event to body to allow closing the image by clicking anywhere
+        document.body.addEventListener('click', function (e) {
+            if (!e.target.classList.contains('hover-target')) {
+                hideImage();
+            }
         });
     };
-
 </script>
 
 </html>
