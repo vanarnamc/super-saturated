@@ -304,7 +304,6 @@
     z-index: 200;
   }
 
-  .img-container img:hover::before {}
 
   .person-name {
     font-family: "OPS";
@@ -412,4 +411,8 @@
       max-width: 80%;
       max-height: 180%;
     }
+    .person-name, .image-name {
+      font-size: 13px;
+    }
+
   }
