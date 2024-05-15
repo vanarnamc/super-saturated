@@ -341,7 +341,7 @@
     }
 
     #menu-bar {
-      font-size: 15px;
+      font-size: 13px;
       padding-left: 10px;
       padding-right: 10px;
       position: fixed;
@@ -362,7 +362,7 @@
     }
 
     #about-wrapper {
-      font-size: 15px;
+      font-size: 13px;
 
       flex-direction: column;
       justify-content: flex-start;
