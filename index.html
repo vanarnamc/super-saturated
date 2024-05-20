@@ -1,151 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="/favicon.png">
-<style>
-   @media only screen and (max-width: 600px) {
-  #main-container{
-    height: 100dvh;
-  }
-  .letter{
-    transition: font-variation-settings 1s ease;
-    font-size: 100px;
-    transform-origin: 85%;
-   
-  }
-}
-</style>
-    <title>SUPER SATURATED</title>
-  </head>
-  <body>
-    <div id="main-container">
-      <div id="menu-bar">
-        <div id="home-about">
-        <div id="home-button">RISD GD MFA 2024</div>
-        <div> <a id="about-link" href="about.html">About the Show</a></div>
-            </div>
-        <div id="clear-button">[Clear]</div>
-      </div>
-      <div id="display">
-        <div class="main-text" data-text="SUPER SATURATED "></div>
-      </div>
-    </div>
-  </body>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SUPERSATURATED</title>
+	<link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/assets/meta/favicon.png">
 
-  <script>
-    window.onload = function () {
-      fetch('assets/images.json') // Make sure this path matches where your JSON file is located
-        .then(response => response.json())
-        .then(images => {
-          document.body.addEventListener('click', () => addImages(images, 3));
-          setupEventListeners();
-        });
-    
-      function addImages(images, count) {
-        for (let i = 0; i < count; i++) {
-          setTimeout(function() {
-            const randomImage = images[Math.floor(Math.random() * images.length)];
-            createImageContainer(randomImage);
-          }, 100 * i);
-        }
-      }
-    
-      function createImageContainer(imageData) {
-    var imgContainer = document.createElement("div");
-    imgContainer.className = "img-container";
-    imgContainer.style.top = Math.random() * 100 + "%";
-    imgContainer.style.left = Math.random() * 100 + "%";
-
-    var img = document.createElement("img");
-    img.src = `photos/${imageData.filename}`;
-
-    // Create separate elements for the person's name and image name
-    var personName = document.createElement("div");
-    personName.textContent = imageData.personName;
-    personName.className = "person-name";
-
-    var imageName = document.createElement("div");
-    imageName.textContent = imageData.imageName;
-    imageName.className = "image-name";
-
-    var link = document.createElement("a");
-    link.href = imageData.link;
-    link.target = "_blank";
-    link.appendChild(personName);
-    link.appendChild(imageName);
-
-    imgContainer.appendChild(img);
-    imgContainer.appendChild(link);
-    document.body.appendChild(imgContainer);
-}
-     
-
-function setupEventListeners() {
-        document.getElementById("clear-button").addEventListener("click", function (event) {
-          event.stopPropagation();
-          document.querySelectorAll(".img-container").forEach(container => container.remove());
-        });
-    
-        document.getElementById("home-button").addEventListener("click", function () {
-          window.location.reload();
-        });
-    
-        document.querySelectorAll(".main-text").forEach(mainText => {
-          const text = mainText.dataset.text;
-          mainText.innerHTML = "";
-    
-          text.split("").forEach(char => {
-            const element = document.createElement("span");
-            element.classList.add("letter");
-            element.textContent = char;
-            const randomWidth = Math.random() * (100 - 50) + 50;
-            element.style.fontVariationSettings = `'wdth' ${randomWidth.toFixed(0)}`;
-            element.setAttribute("data-width", `${randomWidth.toFixed(0)}`);
-    
-            element.addEventListener("mouseenter", () => {
-              let currentWidth = parseInt(element.getAttribute("data-width"), 10);
-              let newWidth = currentWidth > 75 ? 50 : 100;
-              element.style.fontVariationSettings = `'wdth' ${newWidth}`;
-              element.setAttribute("data-width", newWidth);
-            });
-    
-            mainText.appendChild(element);
-          });
-        });
-      }
-    };
-   
-
-if (window.innerWidth <= 600) { /* Only run on mobile */
-    let oscillationPosition = 0;
-let direction = 1;
-const screenWidth = window.innerWidth;
-const oscillationSpeed = 200; // Change this to control the speed of oscillation
-    setInterval(() => {
-  oscillationPosition += direction * oscillationSpeed;
-  if (oscillationPosition >= screenWidth || oscillationPosition <= 0) {
-    direction *= -1;
-  }
-
-  document.querySelectorAll(".letter").forEach(letter => {
-    const letterPosition = letter.getBoundingClientRect().left;
-    if (Math.abs(letterPosition - oscillationPosition) < 50) { // Change 50 to control the range of effect
-      let currentWidth = parseInt(letter.getAttribute("data-width"), 10);
-      let newWidth = currentWidth > 75 ? 50 : 100;
-      letter.style.fontVariationSettings = `'wdth' ${newWidth}`;
-      letter.setAttribute("data-width", newWidth);
-    } else {
-      let currentWidth = parseInt(letter.getAttribute("data-width"), 10);
-      let newWidth = currentWidth > 75 ? 100 : 50;
-      letter.style.fontVariationSettings = `'wdth' ${newWidth}`;
-      letter.setAttribute("data-width", newWidth);
-    }
-  });
-}, 100);
-}
-    </script>
-    
+	<!-- Meta tags -->
+	<meta name="author" content="RISD Graphic Design MFA Cohort 2024">
+	<meta name="keywords" content="Graphic Design, MFA, RISD, Graduate, Thesis">
+	<meta name="description" content="In the age of information overload, the ultimate luxury is meaning and context.">
+	<meta property="og:url" content="https://www.supersaturated.net/">
+	<meta name="og:title" property="og:title" content="SUPERSATURATED">
+	<meta property="og:description" content="In the age of information overload, the ultimate luxury is meaning and context.">
+	<meta property="og:image" content="/assets/meta/opengraph.jpg">
+</head>
+<body>
+	<div class="container">
+		<nav class="nav">
+			<div class="nav-links">
+				<a href="/" class="nav-link">RISD GD MFA 2024</a>
+				<a href="/about/" class="nav-link">About the Show</a>
+			</div>
+			<button class="nav-link" onclick="clearScreen();" id="clear" style="display: none;">[Clear]</button>
+		</nav>
+		<main class="content">
+			<div class="photos"></div>
+			<h1 class="title">SUPERSATURATED</h1>
+		</main>
+	</div>
+	<script src="/home.js"></script>
+</body>
 </html>

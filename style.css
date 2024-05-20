@@ -1,418 +1,252 @@
-  @font-face {
-    font-family: "Gravity";
-    src: url("assets/gravity.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "OPS";
-    src: url("assets/ops.ttf") format("truetype");
-  }
-
-  @font-face {
-    font-family: "OPS-Italic";
-    src: url("assets/ops-italic.ttf") format("truetype");
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    overflow: hidden;
-  }
-
-  a {
-    text-decoration: none;
-    color: black;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  .letter {
-    font-family: "Gravity";
-    font-size: 200px;
-    transform: scale(1, 3);
-    transform-origin: 65% 65%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    font-variation-settings: "wdth" 50;
-    color: #3da326;
-    transition: font-variation-settings .5s ease;
-    /* Smooth transition for width change */
-    pointer-events: auto;
-    /* Enable pointer events on each letter for hover effects */
-  }
-
-  .main-text {
-    display: flex;
-    height: 22vh;
-    cursor: pointer;
-    z-index: 70;
-    -webkit-user-select: none;
-    /* Chrome, Safari, Opera */
-    -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer */
-    user-select: none;
-    /* Standard syntax */
-  }
-
-  .noselect {
-    -webkit-touch-callout: none;
-    /* iOS Safari */
-    -webkit-user-select: none;
-    /* Safari */
-    -khtml-user-select: none;
-    /* Konqueror HTML */
-    -moz-user-select: none;
-    /* Old versions of Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer/Edge */
-    user-select: none;
-    /* Non-prefixed version, currently supported by all modern browsers */
-  }
-
-  #main-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    overflow: hidden;
-    height: 100vh;
-  }
-
-  #display {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  #about-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    margin-left: 50px;
-    font-family: "OPS";
-    font-size: 18px;
-  }
-
-  #about-text {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    justify-content: flex-end;
-    flex: 2;
-    margin-right: 150px;
-  }
-
-  #designers-name {
-    text-decoration: underline;
-  }
-
-  li {
-    margin-left: -10px;
-  }
-
-  .hover-img {
-    position: absolute;
-    max-width: 50%;
-    /* adjust as needed */
-    max-height: 50%;
-    /* adjust as needed */
-  }
-
-  .end-space {
-    min-height: 300px;
-    width: 100%;
-  }
-
-  .hover-target {
-    display: inline-block;
-    cursor: pointer;
-    padding-left: 0px;
-    /* Adjust padding as needed */
-    padding-right: 10px;
-
-    background-color: transparent;
-    /* Ensure the background is transparent */
-  }
-
-  #list-text {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    flex: 1;
-    padding-right: 50px;
-    overflow-y: auto;
-    /* Enable vertical scrolling */
-  }
-
-  #designer-block>div {
-    margin-bottom: 15px;
-    /* adjust this value to increase or decrease the gap */
-  }
-
-  #list-text>div {
-    margin-bottom: 15px;
-    /* add extra 20 to the designer block */
-  }
-
-  #italic-text {
-    font-family: "OPS-Italic";
-  }
-
-  #about-text>div {
-    margin-bottom: 20px;
-    /* adjust this value to increase or decrease the gap */
-  }
-
-  #num-list {
-    color: rgba(61, 162, 38, 1);
-
-  }
-
-  #num-list * {
-    pointer-events: auto;
-  }
-
-  #num-list:hover {
-    cursor: pointer;
-  }
-
-  #menu-bar {
-    display: flex;
-    font-size: 18px;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    height: 30px;
-    background-color: #ffffff;
-    z-index: 1000;
-    font-family: "OPS";
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-
-
-
-  #home-about {
-    display: flex;
-    justify-content: start;
-    gap: 60px;
-    align-items: center;
-    width: 100%;
-  }
-
-  #clear-button {
-    margin-right: 20px;
-  }
-
-  #home-button {
-    margin-left: 20px;
-  }
-
-  #clear-button:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-  #home-button:hover {
-    text-decoration: underline;
-    cursor: pointer;
-
-  }
-
-
-  .img-container {
-    position: absolute;
-    width: 150px;
-    /* Adjust as needed */
-    height: auto;
-    overflow: visible;
-    /* Ensure the link is visible when extending beyond the container */
-    cursor: pointer;
-    transition: background-color 0.5s ease;
-    z-index: 100;
-  }
-
-  .img-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-    /* Ensures no extra space within the container */
-  }
-
-  .img-container a {
-    position: absolute;
-    top: 100%;
-    /* Position below the image */
-    left: 0;
-    /* Align with the left edge of the image */
-    width: 100%;
-    /* Match the width of the image */
-    color: black;
-    font-family: "OPS";
-    text-decoration: none;
-    visibility: hidden;
-    /* Hide link by default */
-    white-space: nowrap;
-    /* Prevents the text from wrapping */
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    /* Smooth transition for visibility */
-    text-align: left;
-    /* Center the text below the image */
-    padding: 5px 0;
-    /* Add some padding to separate text from the image */
-  }
-
-  .img-container:hover {
-    z-index: 200;
-  }
-
-  .img-container:hover a {
-    visibility: visible;
-    opacity: 1;
-    /* Show link on hover */
-
-  }
-
-  .img-container:hover::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(61, 162, 38, 1);
-    /* Slightly see-through background */
-    mix-blend-mode: screen;
-    z-index: 200;
-  }
-
-
-  .person-name {
-    font-family: "OPS";
-    display: block;
-  }
-
-  .image-name {
-    font-family: "OPS-Italic";
-    display: block;
-  }
-
-  .quote {
-    display: block;
-    text-indent: -1.5em;
-    padding-left: 1em;
-  }
-
-  .author {
-    display: block;
-    margin-top: -20px;
-
-  }
-
-  /* Mobile styles */
-  @media only screen and (max-width: 600px) {
-
-    .letter {
-      font-size: 100px;
-      /* Adjust as needed */
-    }
-
-    body {
-      overflow: auto;
-      overflow-x: hidden;
-      /* Allow scrolling */
-    }
-
-    #menu-bar {
-      font-size: 13px;
-      padding-left: 10px;
-      padding-right: 10px;
-      position: fixed;
-      top: 0;
-    }
-
-    #main-container {
-      overflow: auto;
-      /* Allow the main container to scroll */
-      height: auto;
-      /* Allow the height to adjust for content */
-    }
-
-    #home-about {
-      justify-content: space-between;
-      margin-left: 15px;
-      margin-right: 15px;
-    }
-    ol{
-      margin-left: -10px;
-    }
-
-    #about-wrapper {
-      font-size: 13px;
-
-      flex-direction: column;
-      justify-content: flex-start;
-      /* Align content to the left */
-      /* Ensure the about wrapper does not scroll separately */
-      height: auto;
-      /* Adjust the height for content */
-      width: 94vw;
-      /* overflow-x: hidden; */
-      padding-right: 0;
-      margin-left: 0;
-      /* Remove margin-left for alignment */
-    }
-
-    #home-button {
-      margin-left: 0;
-    }
-
-    #about-text {
-      overflow: visible;
-      /* Ensure the about-text does not scroll separately */
-      height: auto;
-      /* Adjust the height for content */
-      margin-right: 0;
-      /* Adjust margin for mobile view */
-    }
-
-    .mobile-top-space {
-      min-height: 50px;
-    }
-
-    .mobile-bottom-space {
-      min-height: 150px;
-    }
-
-    #list-text {
-      overflow-y: visible;
-      /* Remove the scrolling from the list */
-    }
-
-    .hover-img {
-      max-width: 80%;
-      max-height: 180%;
-    }
-    .person-name, .image-name {
-      font-size: 13px;
-    }
-
-  }
+@font-face {
+	font-family: "Gravity";
+	src: url("/assets/fonts/gravity.ttf") format("truetype");
+}
+@font-face {
+	font-family: "OPS";
+	src: url("/assets/fonts/ops.ttf") format("truetype");
+	font-style: normal;
+}
+@font-face {
+	font-family: "OPS";
+	src: url("/assets/fonts/ops-italic.ttf") format("truetype");
+	font-style: italic;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 18px;
+	line-height: 1.1em;
+	font-weight: normal;
+}
+:root {
+	--green: #3da326;
+}
+body {
+	font-family: "OPS", monospace;
+}
+ol {
+	padding-left: 1.8em;
+}
+.container {
+	width: 100vw;
+	height: 100dvh;
+	position: relative;
+}
+
+/* Navbar */
+.nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	z-index: 9;
+	padding: 15px;
+	gap: 40px;
+	align-items: start;
+}
+.nav-links {
+	display: flex;
+	column-gap: 60px;
+	flex-wrap: wrap;
+}
+.nav-link {
+	color: black;
+	text-decoration: none;
+	border: unset;
+	background-color: unset;
+	font-family: inherit;
+	font-size: inherit;
+	display: block;
+	cursor: pointer;
+}
+.nav-link:hover {
+	text-decoration: underline;
+}
+
+/* Homepage */
+.content {
+	cursor: crosshair;
+	width: 100vw;
+	height: 100dvh;
+	overflow: hidden;
+}
+.title {
+	font-size: 14vw;
+	color: var(--green);
+	font-family: "Gravity", sans-serif;
+	position: fixed;
+	bottom: .8em;
+	left: 50%;
+	text-align: center;
+	transform: translateX(-50%) scaleY(3);
+	line-height: 1em;
+	height: .8em;
+	overflow: hidden;
+}
+.title span {
+	font-size: inherit;
+	transition: font-variation-settings .5s ease;
+}
+.photos {
+	position: relative;
+	overflow: hidden;
+	width: 100vw;
+	height: 100dvh;
+}
+.photo {
+	position: absolute;
+	z-index: 1;
+	text-decoration: none;
+	color: black;
+}
+.photo:hover {
+	z-index: 2;
+}
+.photo-image {
+	display: block;
+	position: relative;
+}
+.photo-image[data-size="0"] {
+	width: 7vmax;
+	height: 7vmax;
+}
+.photo-image[data-size="1"] {
+	width: 14vmax;
+	height: 7vmax;
+}
+.photo-image[data-size="2"] {
+	width: 7vmax;
+	height: 14vmax;
+}
+.photo-image-file {
+	width: 100%;
+	height: 100%;
+	background-size: 14.2vmax;
+}
+.photo-image-overlay {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: var(--green);
+	mix-blend-mode: screen;
+	z-index: 1;
+}
+.photo:hover .photo-image-overlay {
+	display: block;
+}
+.photo-info {
+	display: none;
+}
+.photo:hover .photo-info {
+	display: block;
+}
+
+/* About page */
+.about {
+	display: grid;
+	grid-template-columns: 2fr minmax(320px, 1fr);
+	text-wrap: pretty;
+}
+.about-sticky {
+	height: 100dvh;
+	position: sticky;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	padding: 15px;
+	gap: 1.1em;
+}
+.about-sticky p {
+	max-width: 800px;
+	position: relative;
+}
+.about-quote::before {
+	content: "“";
+	position: absolute;
+	top: 0;
+	left: -.6em;
+}
+.about-scroll {
+	display: flex;
+	flex-direction: column;
+	gap: 2.2em;
+	padding: 2.2em;
+	padding-bottom: 300px;
+}
+.about-designer {
+	display: flex;
+	flex-direction: column;
+	gap: 1.1em;
+	max-width: 800px;
+	position: relative;
+}
+.about-designer h2 {
+	display: flex;
+	gap: 1.1em;
+	cursor: crosshair;
+}
+.about-designer-number {
+	color: var(--green);
+}
+.about-designer-name {
+	text-decoration: underline;
+}
+.about-designer-thumbnail {
+	display: none;
+	pointer-events: none;
+	position: absolute;
+	width: min(600px, calc(100vw - 3.3em));
+	top: .55em;
+	left: 1.1em;
+	transform: translateX(-100%);
+	z-index: 2;
+}
+.container[data-thumbnail="above"] .about-designer-thumbnail {
+	transform: translate(-100%, -100%);
+}
+.about-designer h2:hover ~ .about-designer-thumbnail {
+	display: block;
+}
+.about-designer a {
+	color: black;
+	text-decoration: none;
+}
+.about-designer a:hover {
+	text-decoration: underline;
+}
+.about-designer a:active {
+	opacity: .5;
+}
+.about-info {
+	display: flex;
+	flex-direction: column;
+	gap: 1.1em;
+	max-width: 800px;
+	color: var(--green);
+	margin-top: 1.1em;
+}
+@media only screen and (max-width: 800px) {
+	.about {
+		grid-template-columns: 1fr;
+		padding-top: 2.2em;
+	}
+	.about-sticky {
+		height: unset;
+		position: static;
+	}
+	.about-designer-thumbnail {
+		transform: unset;
+		left: -.55em;
+	}
+	.container[data-thumbnail="above"] .about-designer-thumbnail {
+		transform: translateY(-100%);
+	}
+}
