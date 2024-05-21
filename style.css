@@ -238,9 +238,17 @@ ol {
 		grid-template-columns: 1fr;
 		padding-top: 2.2em;
 	}
+	.nav{
+		background-color: white;
+	}
 	.about-sticky {
 		height: unset;
 		position: static;
+		padding-top: 300px;
+		padding-bottom: 60px;
+	}
+	.about-scroll{
+		padding: 15px;
 	}
 	.about-designer-thumbnail {
 		transform: unset;
