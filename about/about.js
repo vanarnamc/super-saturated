@@ -15,18 +15,21 @@ var designerNumbers = document.querySelectorAll('.about-designer-number');
 // Add a click and touch event listener to each about-designer-number
 designerNumbers.forEach(function (designerNumber) {
     function handleEvent(e) {
-        // Prevent the window click/touch event from firing
-        e.stopPropagation();
+		if (window.innerWidth < 800) {
+			// Prevent the window click/touch event from firing
+			e.stopPropagation();
 
-        // Get the corresponding about-designer-thumbnail
-        var thumbnail = this.parentNode.parentNode.querySelector('.about-designer-thumbnail');
+			// Get the corresponding about-designer-thumbnail
+			var thumbnail = this.parentNode.parentNode.querySelector('.about-designer-thumbnail');
 
-        // Center the thumbnail
-        thumbnail.style.position = 'fixed';
-        thumbnail.style.top = '50%';
-        thumbnail.style.left = '50%';
-        thumbnail.style.transform = 'translate(-50%, -50%)';
-        thumbnail.style.zIndex = '1000';
+			// Center the thumbnail
+			thumbnail.style.position = 'fixed';
+			thumbnail.style.top = '50%';
+			thumbnail.style.left = '50%';
+			thumbnail.style.transform = 'translate(-50%, -50%)';
+			thumbnail.style.zIndex = '1000';
+			thumbnail.style.display = 'block';
+		}
     }
 
     designerNumber.addEventListener('click', handleEvent);
@@ -45,6 +48,7 @@ function hideImage() {
         thumbnail.style.left = '';
         thumbnail.style.transform = '';
         thumbnail.style.zIndex = '';
+        thumbnail.style.display = '';
     });
 }
 

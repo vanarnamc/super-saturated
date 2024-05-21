@@ -153,6 +153,19 @@ function generatePhoto(e) {
 		setTimeout(() => {
 			photos.appendChild(newPhoto);
 		}, i*50)
+
+		// Require title click on mobile
+		newPhoto.addEventListener('click', (e) => {
+			if (window.innerWidth < 600) {
+				e.preventDefault();
+			}
+		})
+		const photoInfo = newPhoto.querySelector('.photo-info');
+		photoInfo.addEventListener('click', (e) => {
+			if (window.innerWidth < 600) {
+				window.open(newPhotoData["link"], '_blank');
+			}
+		})
 	}
 }
 
