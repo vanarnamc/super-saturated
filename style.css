@@ -246,10 +246,11 @@ ol {
 	.nav{
 		background-color: white;
 	}
+
 	.about-sticky {
 		height: unset;
 		position: static;
-		padding-top: 300px;
+		padding-top: 470px;
 		padding-bottom: 60px;
 	}
 	.about-scroll{
@@ -263,6 +264,7 @@ ol {
 		transform: translateY(-100%);
 	}
 	.title{
-		transform: translateX(-50%) translateY(-100%) scaleY(5);
+		transform: translateX(-50%) translateY(-50%) scaleY(4);
+
 	}
 }
