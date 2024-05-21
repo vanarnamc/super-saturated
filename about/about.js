@@ -12,10 +12,10 @@ window.addEventListener('mousemove', checkThumbnailPosition);
 // Get all the about-designer-number elements
 var designerNumbers = document.querySelectorAll('.about-designer-number');
 
-// Add a click event listener to each about-designer-number
+// Add a click and touch event listener to each about-designer-number
 designerNumbers.forEach(function (designerNumber) {
-    designerNumber.addEventListener('click', function (e) {
-        // Prevent the window click event from firing
+    function handleEvent(e) {
+        // Prevent the window click/touch event from firing
         e.stopPropagation();
 
         // Get the corresponding about-designer-thumbnail
@@ -27,11 +27,14 @@ designerNumbers.forEach(function (designerNumber) {
         thumbnail.style.left = '50%';
         thumbnail.style.transform = 'translate(-50%, -50%)';
         thumbnail.style.zIndex = '1000';
-    });
+    }
+
+    designerNumber.addEventListener('click', handleEvent);
+    designerNumber.addEventListener('touchend', handleEvent);
 });
 
-// Add a click event listener to the window to hide the image
-window.addEventListener('click', function () {
+// Add a click and touch event listener to the window to hide the image
+function hideImage() {
     // Get all the about-designer-thumbnail elements
     var thumbnails = document.querySelectorAll('.about-designer-thumbnail');
 
@@ -43,4 +46,7 @@ window.addEventListener('click', function () {
         thumbnail.style.transform = '';
         thumbnail.style.zIndex = '';
     });
-});
+}
+
+window.addEventListener('click', hideImage);
+window.addEventListener('touchend', hideImage);
