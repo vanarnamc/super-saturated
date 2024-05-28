@@ -79,7 +79,7 @@ const photoData = [
 		"filename": "glikeriya.jpg",
 		"personName": "Glikeriya Shotanova",
 		"imageName": "Here—there",
-		"link": "https://glikerii.com/"
+		"link": "https://glikeriya.com/"
 	},
 	{
 		"filename": "berett.jpg",
